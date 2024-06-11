@@ -51,6 +51,8 @@ export default App;
 Once the provider is set up, you can use the on and off methods, provided by useCodes hook, to manage your code handlers.
 
 ```javascript
+import { useCodes } from "@costorgroup/codes";
+
 const MyComponent = () => {
   const codes = useCodes();
 

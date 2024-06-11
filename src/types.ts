@@ -1,16 +1,16 @@
-export type TCheatsProvider = {
+export type TCodesProvider = {
   keyStack: string;
-  list: TCheatsProviderListElement[];
+  list: TCodesProviderListElement[];
   on: (key: string, handler: () => void) => void;
   off: (key: string, handler: () => void) => void;
 };
 
-export type TCheatsProviderState = {
+export type TCodesProviderState = {
   keyStack: string;
-  list: TCheatsProviderListElement[];
+  list: TCodesProviderListElement[];
 };
 
-export type TCheatsProviderListElement = {
+export type TCodesProviderListElement = {
   key: string;
   handler: () => void;
 };

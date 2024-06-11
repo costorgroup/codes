@@ -1,16 +1,23 @@
 {
-  "name": "@costorgroup/cheats",
+  "name": "@costorgroup/codes",
   "version": "0.0.1",
-  "description": "Cheats package created by CostorGroup will allow you to use keyboard cheats that will run specific functions on your application",
+  "description": "Codes package created by CostorGroup will allow you to use keyboard codes that will run specific functions on your application",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "rollup -c"
+    "prebuild": "rimraf dist/",
+    "build": "rollup -c",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\" \"src/**/*.jsx\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepublishOnly": "yarn run lint",
+    "preversion": "yarn run lint",
+    "version": "yarn run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
-    "cheats",
+    "codes",
     "package",
     "typescript",
     "javascript",
@@ -27,15 +34,25 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.3.3",
+    "rimraf": "^5.0.7",
     "rollup": "^4.18.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.6.3",
+    "tslint": "^6.1.3",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "react": "^18.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/costorgroup/codes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/costorgroup/codes/issues"
+  },
+  "homepage": "https://github.com/costorgroup/codes#readme"
 }
 

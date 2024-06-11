@@ -6,19 +6,19 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { TCheatsProvider, TCheatsProviderState } from "./types";
+import { TCodesProvider, TCodesProviderState } from "./types";
 
-export const CheatsContext = createContext<TCheatsProvider>({
+export const CodesContext = createContext<TCodesProvider>({
   list: [],
   keyStack: "",
   on: (_a, _b) => {},
   off: (_a, _b) => {},
 });
 
-export const useCheats = () => useContext(CheatsContext);
+export const useCodes = () => useContext(CodesContext);
 
-export const CheatsProvider = ({ children }: { children: ReactNode }) => {
-  const [state, setState] = useState<TCheatsProviderState>({
+export const CodesProvider = ({ children }: { children: ReactNode }) => {
+  const [state, setState] = useState<TCodesProviderState>({
     list: [],
     keyStack: "",
   });
@@ -71,8 +71,8 @@ export const CheatsProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <CheatsContext.Provider value={value}>{children}</CheatsContext.Provider>
+    <CodesContext.Provider value={value}>{children}</CodesContext.Provider>
   );
 };
 
-export default CheatsProvider;
+export default CodesProvider;

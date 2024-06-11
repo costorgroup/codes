@@ -1,6 +1,6 @@
 {
   "name": "@costorgroup/codes",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Codes package created by CostorGroup will allow you to use keyboard codes that will run specific functions on your application",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

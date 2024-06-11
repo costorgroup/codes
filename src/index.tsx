@@ -1,5 +1,3 @@
-"use client";
-
 import React, {
   ReactNode,
   createContext,
@@ -46,10 +44,16 @@ export const CodesProvider = ({ children }: { children: ReactNode }) => {
   }, [state]);
 
   useEffect(() => {
-    state.list.forEach((listItem) => {
-      if (!state.keyStack.endsWith(listItem.key)) return;
-      listItem.handler();
-    });
+    if (state.keyStack) {
+      const result = state.list.filter((listItem) =>
+        state.keyStack.endsWith(listItem.key)
+      );
+
+      if (result.length) {
+        result.forEach((listItem) => listItem.handler());
+        setState((prev) => ({ ...prev, keyStack: "" }));
+      }
+    }
   }, [state.keyStack, state.list]);
 
   useEffect(() => {
